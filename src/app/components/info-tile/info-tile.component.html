@@ -1,0 +1,22 @@
+<div class="text-center mx-auto">
+  <div class="whitespace-nowrap" *ngIf="data">
+    <span class="text-zinc-800 text-xs leading-none">{{
+      typesDictionary[typeOfFinIndicator]
+      }}</span>
+    <span>{{ " " }}</span>
+    <span class="text-zinc-500 text-xs leading-none">{{ currency }}</span>
+  </div>
+  <div class="whitespace-nowrap" *ngIf="data">
+    <span [innerHTML]="sum | numberFormat"></span>
+    <span [class]="'text-right text-xs font-normal leading-none ml-1 ' + indicationColor">
+      <i [class]="'pi text-xs ' + typeOfArrow"></i>
+      {{thisYearLastYearDiff ? (thisYearLastYearDiff | number : "1.0-2") + '%': '-'}}
+    </span>
+  </div>
+  <div class="whitespace-nowrap" *ngIf="data">
+    <span class="text-center text-zinc-500 text-xs font-light leading-snug">{{ data.year }} рік</span>
+  </div>
+  <p-skeleton class="text-center mx-auto" height="1.5rem" *ngIf="!data"></p-skeleton>
+  <p-skeleton class="text-center mx-auto" height="1.5rem" *ngIf="!data"></p-skeleton>
+  <p-skeleton class="text-center mx-auto" height="1.5rem" *ngIf="!data"></p-skeleton>
+</div>

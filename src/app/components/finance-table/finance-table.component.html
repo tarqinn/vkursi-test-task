@@ -1,0 +1,118 @@
+<p-table [value]="finDynamic" selectionMode="single" styleClass="p-datatable-striped" (onRowSelect)="onRowSelect($event)">
+  <ng-template pTemplate="header">
+    <tr>
+      <th></th>
+      <th class="text-center" *ngFor="let type of typesArray; let i = index">
+        {{ typesDictionary[type] }}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-yearlyFinDynamic>
+    <tr [pSelectableRow]="yearlyFinDynamic">
+      <td class="font-medium">{{ yearlyFinDynamic.year }}</td>
+      <td>
+        <div class="flex justify-between">
+          <span
+            [innerHTML]="yearlyFinDynamic.main_active | numberFormat"
+          ></span>
+          <span>{{ " " }}</span>
+          <span
+            *ngIf="yearlyFinDynamic.main_active_diff - 0; else elseBlock"
+            [class.text-green-600]="yearlyFinDynamic.main_active_diff > 0"
+            [class.text-red-600]="yearlyFinDynamic.main_active_diff < 0"
+          >
+            {{ yearlyFinDynamic.main_active_diff | number : "1.0-2" }}%
+            <i
+              class="pi pi-arrow-up text-xs"
+              [class.pi-arrow-up]="yearlyFinDynamic.main_active_diff > 0"
+              [class.pi-arrow-down]="yearlyFinDynamic.main_active_diff < 0"
+              [class.pi-arrows-v]="yearlyFinDynamic.main_active_diff === 0"
+            ></i>
+          </span>
+          <ng-template #elseBlock>
+            <span>-</span>
+          </ng-template>
+        </div>
+      </td>
+      <td>
+        <div class="flex justify-between">
+          <span
+            [innerHTML]="yearlyFinDynamic.current_liabilities | numberFormat"
+          ></span>
+          <span>{{ " " }}</span>
+          <span
+            *ngIf="
+              yearlyFinDynamic.current_liabilities_diff - 0;
+              else elseBlock
+            "
+            [class.text-green-600]="
+              yearlyFinDynamic.current_liabilities_diff < 0
+            "
+            [class.text-red-600]="yearlyFinDynamic.current_liabilities_diff > 0"
+          >
+            {{ yearlyFinDynamic.current_liabilities_diff | number : "1.0-2" }}%
+            <i
+              class="pi pi-arrow-up text-xs"
+              [class.pi-arrow-up]="
+                yearlyFinDynamic.current_liabilities_diff > 0
+              "
+              [class.pi-arrow-down]="
+                yearlyFinDynamic.current_liabilities_diff < 0
+              "
+              [class.pi-arrows-v]="
+                yearlyFinDynamic.current_liabilities_diff === 0
+              "
+            ></i>
+          </span>
+          <ng-template #elseBlock>
+            <span>-</span>
+          </ng-template>
+        </div>
+      </td>
+      <td>
+        <div class="flex justify-between">
+          <span [innerHTML]="yearlyFinDynamic.net_income | numberFormat"></span>
+          <span>{{ " " }}</span>
+          <span
+            *ngIf="yearlyFinDynamic.net_income_diff - 0; else elseBlock"
+            [class.text-green-600]="yearlyFinDynamic.net_income_diff > 0"
+            [class.text-red-600]="yearlyFinDynamic.net_income_diff < 0"
+          >
+            {{ yearlyFinDynamic.net_income_diff | number : "1.0-2" }}%
+            <i
+              class="pi pi-arrow-up text-xs"
+              [class.pi-arrow-up]="yearlyFinDynamic.net_income_diff > 0"
+              [class.pi-arrow-down]="yearlyFinDynamic.net_income_diff < 0"
+              [class.pi-arrows-v]="yearlyFinDynamic.net_income_diff === 0"
+            ></i>
+          </span>
+          <ng-template #elseBlock>
+            <span>-</span>
+          </ng-template>
+        </div>
+      </td>
+      <td>
+        <div class="flex justify-between">
+          <span [innerHTML]="yearlyFinDynamic.net_profit | numberFormat"></span>
+          <span>{{ " " }}</span>
+          <span
+            *ngIf="yearlyFinDynamic.net_profit_diff - 0; else elseBlock"
+            [class.text-green-600]="yearlyFinDynamic.net_profit_diff > 0"
+            [class.text-red-600]="yearlyFinDynamic.net_profit_diff < 0"
+          >
+            {{ yearlyFinDynamic.net_profit_diff | number : "1.0-2" }}%
+            <i
+              class="pi pi-arrow-up text-xs"
+              [class.pi-arrow-up]="yearlyFinDynamic.net_profit_diff > 0"
+              [class.pi-arrow-down]="yearlyFinDynamic.net_profit_diff < 0"
+              [class.pi-arrows-v]="yearlyFinDynamic.net_profit_diff === 0"
+            ></i>
+          </span>
+          <ng-template #elseBlock>
+            <span>-</span>
+          </ng-template>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

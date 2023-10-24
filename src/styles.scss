@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "primeng/resources/themes/lara-light-teal/theme.css";
+@import "primeng/resources/primeng.min.css";
+@import "primeicons/primeicons.css";
+
+//PrimeNG theme style tweaks
+.p-tabview .p-tabview-nav {
+  display: flex;
+  justify-content: flex-end;
+  *:focus {
+    box-shadow: none;
+  }
+  [role="tablist"] {
+    border-bottom: none;
+  }
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+  box-shadow: none;
+}
+
+.p-datatable .p-datatable-thead > tr > th,
+.p-datatable .p-datatable-tbody > tr > td {
+  text-align: center;
+}
+
+.p-datatable.p-datatable-striped .p-datatable-tbody {
+  & > tr:nth-child(even) {
+    background: none;
+  }
+  & > tr:nth-child(odd) {
+    background: #4EDADD1A;
+  }
+}
