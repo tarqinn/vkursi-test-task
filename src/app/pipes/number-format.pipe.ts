@@ -11,7 +11,7 @@ export class NumberFormatPipe implements PipeTransform {
       const thousands = (value / 1000).toFixed(2);
       return `<span class="
                 text-blue-800 text-base font-medium leading-snug
-              ">${thousands}</span>${' '}
+              ">${thousands}</span>
               <span class="
                 text-zinc-500 text-base font-medium leading-snug
               ">тис.</span>`.replace('.', ',');
@@ -19,7 +19,7 @@ export class NumberFormatPipe implements PipeTransform {
       const millions = (value / 1000000).toFixed(2);
       return `<span class="
                 text-blue-800 text-base font-medium leading-snug
-              ">${millions}</span>${' '}
+              ">${millions}</span>
               <span class="
                 text-zinc-500 text-base font-medium leading-snug
               ">млн.</span>`.replace('.', ',');
@@ -27,7 +27,7 @@ export class NumberFormatPipe implements PipeTransform {
       const billions = (value / 1000000000).toFixed(2);
       return `<span class="
                 text-blue-800 text-base font-medium leading-snug
-              ">${billions}</span>${' '}
+              ">${billions}</span>
               <span class="
                 text-zinc-500 text-base font-medium leading-snug
               ">млрд.</span>`.replace('.', ',');

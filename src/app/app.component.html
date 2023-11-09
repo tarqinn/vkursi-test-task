@@ -1,7 +1,7 @@
 <div class="w-auto mx-32 my-8 bg-white">
   <div class="justify-end items-center gap-1.5 inline-flex">
     <div class="w-8 h-8 relative">
-      <img src="assets/images/hryvna-sign.svg" alt="hryvna sign" />
+      <img [ngSrc]="'assets/images/hryvna-sign.svg'" alt="hryvna sign" [fill]="true" [priority]="true"/>
     </div>
     <div class="text-zinc-800 text-3xl font-medium leading-normal">Фінанси</div>
   </div>
@@ -9,13 +9,16 @@
   <div
     class="w-auto flex h-10 bg-gradient-to-r from-blue-50 rounded-lg items-center my-4"
   >
-    <img
-      class="mx-3"
-      src="assets/images/graph-with-arrow.svg"
-      alt="graph with arrow"
-    />
+    <div class="w-6 h-6 mx-3 relative">
+      <img
+        [ngSrc]="'assets/images/graph-with-arrow.svg'"
+        [fill]="true"
+        [priority]="true"
+        alt="graph with arrow"
+      />
+    </div>
     <div
-      class="text-zinc-800 text-lg text-black font-medium leading-normal whitespace-nowrap"
+      class="text-zinc-800 text-lg font-medium leading-normal whitespace-nowrap"
     >
       Аналіз фінансової звітності
     </div>

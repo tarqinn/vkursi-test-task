@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TableRowSelectEvent } from 'primeng/table';
 import { FinanceDictionaryModel } from 'src/app/models/finance-dictionary.model';
 import { FinanceIndicatorsModel } from 'src/app/models/finance-indicators.model';
@@ -11,7 +11,7 @@ import { FinanceLocalDataService } from 'src/app/services/finance-local-data.ser
   templateUrl: './finance-table.component.html',
   styleUrls: ['./finance-table.component.scss'],
 })
-export class FinanceTableComponent {
+export class FinanceTableComponent implements OnInit {
   @Input() data!: FinanceIndicatorsModel;
 
   typesDictionary: FinanceDictionaryModel = this.financeLocalDataService.typesDictionary;

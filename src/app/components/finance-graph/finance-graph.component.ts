@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ChartData, ChartDataset, ChartOptions } from 'chart.js';
 import { FinanceIndicatorsModel } from 'src/app/models/finance-indicators.model';
 import { FinanceYearStatisticModel } from 'src/app/models/finance-year-statistic.model';
@@ -9,7 +9,7 @@ import { FinanceLocalDataService } from 'src/app/services/finance-local-data.ser
   templateUrl: './finance-graph.component.html',
   styleUrls: ['./finance-graph.component.scss'],
 })
-export class FinanceGraphComponent {
+export class FinanceGraphComponent implements OnInit {
   @Input() dataset!: FinanceIndicatorsModel;
 
   data!: ChartData;

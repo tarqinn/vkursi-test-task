@@ -11,6 +11,6 @@ export class FinanceDataService {
   constructor(private http: HttpClient) { }
 
   getFinancialData(): Observable<FinanceIndicatorsModel> {
-    return this.http.get('assets/financical_example.json') as Observable<FinanceIndicatorsModel>;
+    return this.http.get('assets/financial_example.json') as Observable<FinanceIndicatorsModel>;
   }
 }

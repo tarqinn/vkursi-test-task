@@ -16,10 +16,6 @@ export class FinanceLocalDataService {
   private selectedDataSubject: BehaviorSubject<FormedFinanceTableData | null> = new BehaviorSubject<FormedFinanceTableData | null>(null);
   selectedData$ = this.selectedDataSubject.asObservable();
 
-  private selectedGraphIndexSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  selectedGraphIndex$ = this.selectedDataSubject.asObservable();
-
-
   typesDictionary: FinanceDictionaryModel = {
     main_active: 'Активи',
     current_liabilities: 'Зобов’язання',
@@ -51,9 +47,5 @@ export class FinanceLocalDataService {
 
   setData(data: FormedFinanceTableData | null) {
     this.selectedDataSubject.next(data);
-  }
-
-  setSelectedGraphIndex(i: number) {
-    this.selectedGraphIndexSubject.next(i);
   }
 }

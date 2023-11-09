@@ -1,5 +1,5 @@
 import { FinanceDataService } from './services/finance-data.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FinanceIndicatorsModel } from './models/finance-indicators.model';
 import { FinanceLocalDataService } from './services/finance-local-data.service';
 
@@ -8,10 +8,9 @@ import { FinanceLocalDataService } from './services/finance-local-data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'vkursi-test-task';
   typesOfFinData: (keyof FinanceIndicatorsModel)[] = [];
-  selectedYear: string = '2020';
   isLoading: boolean = true;
   data!: FinanceIndicatorsModel;
 

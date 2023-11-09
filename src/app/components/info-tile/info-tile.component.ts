@@ -1,7 +1,6 @@
-import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FinanceDictionaryModel } from 'src/app/models/finance-dictionary.model';
-import { FinanceIndicatorsModel } from 'src/app/models/finance-indicators.model';
 import { FormedFinanceTableData } from 'src/app/models/formed-finance-table-data.model';
 import { FinanceLocalDataService } from 'src/app/services/finance-local-data.service';
 
@@ -13,12 +12,10 @@ type ArrowDirection = 'pi-arrow-up' | 'pi-arrow-down' | 'pi-arrows-v';
   templateUrl: './info-tile.component.html',
   styleUrls: ['./info-tile.component.scss'],
 })
-export class InfoTileComponent {
-  year: string = '2020';
+export class InfoTileComponent implements OnInit, OnDestroy {
   @Input() typeOfFinIndicator: string = '';
   @Input() currency: string = 'грн.';
   sum: number = 0;
-  prevSum: number = 0;
   indicationColor: string = '';
   typeOfArrow: ArrowDirection = 'pi-arrows-v';
 
@@ -26,7 +23,6 @@ export class InfoTileComponent {
   typesDictionary!: FinanceDictionaryModel;
   dataSubscription!: Subscription;
   data!: FormedFinanceTableData;
-  rawData!: FinanceIndicatorsModel;
 
   constructor(
     public financeLocalDataService: FinanceLocalDataService,

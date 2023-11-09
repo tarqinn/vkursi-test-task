@@ -12,6 +12,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { TableModule } from 'primeng/table';
 import { BlockUIModule } from 'primeng/blockui';
 import { SkeletonModule } from 'primeng/skeleton';
+import {NgOptimizedImage} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SkeletonModule } from 'primeng/skeleton';
     TableModule,
     BlockUIModule,
     SkeletonModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent],

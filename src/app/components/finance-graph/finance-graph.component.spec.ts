@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FinanceGraphComponent } from './FinanceGraphComponent';
+import { FinanceGraphComponent } from './finance-graph.component';
 
 describe('FinanceGraphComponent', () => {
   let component: FinanceGraphComponent;
